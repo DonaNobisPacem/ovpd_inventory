@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Transactions</h1>
+
+<%= link_to '<i class="fa fa-plus"></i> New Transaction'.html_safe, new_supply_transaction_path, :class => "pull-right" %>
+
+<table class="table table-hover table-responsive">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Date</th>
+      <th>Transactions Made</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @supply_transactions.each do |supply_transaction| %>
+      <tr>
+        <% user = User.find( supply_transaction.user_id ) %>
+        <td><%= user.first_name + " " + user.last_name %></td>
+        <td><%= supply_transaction.created_at %></td>
+        <td><%= supply_transaction.transaction_items.count %></td>
+        <td><%= link_to 'View transaction', supply_transaction %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

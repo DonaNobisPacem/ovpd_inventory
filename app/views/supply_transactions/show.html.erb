@@ -1,0 +1,52 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron">
+  <p><strong>Transaction by: </strong> <%= @user.first_name %> <%= @user.last_name %></p>
+  <p><strong>Date created: </strong> <%= @supply_transaction.created_at %></p>
+
+  <strong>Resupplies made: </strong>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>Supply Name</th>
+        <th>Quantity Resupplied</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @resupply.each do |supply| %>
+        <tr>
+          <td><%= link_to Supply.find( supply.product_id ).name, Supply.find( supply.product_id ) %></td>
+          <td><%= supply.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <strong>Procurements made: </strong>
+  <table class="table table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>Stock No.</th>
+        <th>Unit</th>
+        <th>Item Description/s</th>
+        <th>Quantity</th>
+        <th>Unit Cost</th>
+        <th>Total Cost</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @procurement.each do |supply| %>
+        <tr>
+          <td></td>
+          <td></td>
+          <td><%= link_to Supply.find( supply.product_id ).name, Supply.find( supply.product_id ) %></td>
+          <td><%= supply.quantity %></td>
+          <td><%= Supply.find( supply.product_id ).cost %></td>
+          <td><%= Supply.find( supply.product_id ).cost * supply.quantity %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<%= link_to 'Back', "javascript:history.back()", :class => "pull-right" %>

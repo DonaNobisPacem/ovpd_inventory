@@ -1,0 +1,45 @@
+<% if user_signed_in? %>
+	<br>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-4">
+				<%= link_to supplies_path do %>
+					<div class="panel panel-default">
+						<div class="panel-body text-center">
+							<%= image_tag "upseal.png", :class => "img-responsive center-image" %>
+						</div>
+						<div class="panel-footer text-center">
+							<p>View Supplies</p>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			<div class="col-xs-4">
+				<%= link_to supply_transactions_path do %>
+					<div class="panel panel-default">
+						<div class="panel-body text-center">
+							<%= image_tag "upseal.png", :class => "img-responsive center-image" %>
+						</div>
+						<div class="panel-footer text-center">
+							<p>View transactions</p>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			<div class="col-xs-4">
+				<%= link_to new_supply_transaction_path do %>
+					<div class="panel panel-default">
+						<div class="panel-body text-center">
+							<%= image_tag "upseal.png", :class => "img-responsive center-image" %>
+						</div>
+						<div class="panel-footer text-center">
+							<p>Make a transaction</p>
+						</div>
+					</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+<% else %>
+	<%= render 'signin' %>	
+<% end %>

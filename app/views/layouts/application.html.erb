@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OVPD Inventory</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <%= csrf_meta_tags %>
+  <%= google_webfonts_init({ google: ['Ubuntu'] }) %>
+</head>
+<body>
+	<%= render 'shared/navigation' %>
+	<div class="container-fluid"><!-- container -->
+		<div class="row"> <!-- row -->
+			<div class="col-xs-2">
+			</div>
+			<div class="col-xs-8">
+				<% flash.each do |name, msg| %>
+					<% if user_signed_in? %>
+	            		<% content_tag :div, msg, class: "alert alert-#{name}" %>
+	            	<% end %>
+	         	<% end %>
+
+				<%= yield %>
+			</div>
+			<div class="col-xs-2">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

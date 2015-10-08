@@ -1,0 +1,17 @@
+<%= simple_form_for(@supply_transaction) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  <%= f.input :user_id, :as => :hidden, input_html: { value: current_user.id } %>
+  <%= f.simple_fields_for :transaction_items do |transactions_form| %>
+  	<%= render 'transaction_item_fields', f: transactions_form %>
+  	<%= link_to_add_association '<i class="fa fa-plus"></i> Add transaction'.html_safe, f, :transaction_items, :class => "btn btn-info" %>
+  <% end %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create Transaction", :class => "btn btn-success pull-right" %>
+  </div>
+<% end %>
+<br><br>
+<%= link_to 'Back', "javascript:history.back()", :class => "pull-right" %>

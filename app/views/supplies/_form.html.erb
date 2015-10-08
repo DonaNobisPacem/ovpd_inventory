@@ -1,0 +1,48 @@
+<div class="jumbotron">
+  <%= simple_form_for(@supply) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="container-fluid">
+      <div class="form-inputs">
+          <div class="row">
+            <div class="col-xs-12">
+              <%= f.input :name, :required => true %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <%= f.input :cost, :label => "Cost (Php)" %>
+            </div>
+            <div class="col-xs-6">
+              <%= f.input :quantity %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-6">
+              <%=  f.input :group_quantity, :label => "Quantity per Group" %>
+            </div>
+            <div class="col-xs-6">
+              <%= f.input :group_identifier %>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <%= f.input :identifier %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <div class="container-fluid">
+          <div class="row pull-right">
+            <div class="col-xs-12">
+              <%= link_to "Back", "javascript:history.back()", :class => "btn btn-warning"%>
+              <%= f.button :submit, :class => "btn btn-success" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

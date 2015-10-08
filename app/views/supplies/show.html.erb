@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @supply.name %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @supply.quantity %>
+</p>
+
+<p>
+  <strong>Group quantity:</strong>
+  <%= @supply.group_quantity %>
+</p>
+
+<p>
+  <strong>Group identifier:</strong>
+  <%= @supply.group_identifier %>
+</p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @supply.identifier %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @supply.cost %>
+</p>
+
+<%= link_to 'Edit', edit_supply_path(@supply) %> |
+<%= link_to 'Back', supplies_path %>
